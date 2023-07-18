@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-stojj2-portfolioproject-22g6lac0ymf.ws-eu101.gitpod.io', 'hairsalonpp4-84f80a2eef1c.herokuapp.com']
+ALLOWED_HOSTS = ['8000-stojj2-portfolioproject-22g6lac0ymf.ws-eu101.gitpod.io','hairsalonpp4-84f80a2eef1c.herokuapp.com']
 
 
 # Application definition
@@ -127,6 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
