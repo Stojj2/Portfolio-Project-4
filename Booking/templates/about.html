@@ -2,17 +2,55 @@
 
 
 {% block content %}
+{% load static %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col align-self-start text-start border-bottom">
+            <h2>History</h2>
+            <img class="rounded" src="{% static "images/about_top.jpg" %}" />
 
-<div class="container-lg">
-    <div class="container-md --bs-body-color">
-        <h2>History</h2>
-
-    </div>
-    <div class="container-md --bs-body-color">
-        <h2>Employees</h2>
-
+            <P class="p-2">Carléns started its operations in Säter, Dalarna, in 1939 and has since then operated several salons in
+                Stockholm.
+            </P>
+            <P class="p-2">
+                In 1986, a salon was opened in the Slakthusområdet area near Globen, and in 2006, it was taken over by
+                Pernilla (the 4th generation Carlén) together with Helene. Due to significant changes in the
+                Slakthusområdet
+                area, we were forced to relocate. After 35 years in the same premises, we moved to Nynäsvägen 363, where
+                we
+                currently operate our business.
+            </P>
+        </div>
+        <div class="col align-self-center">
+            <h2>Employees</h2>
+            <div class="p-3 border-bottom">
+                <h3 class="p-1">Pernilla</h3>
+                <img class="img-thumbnail w-75 rounded-start" src="{% static "images/pernilla_top.jpg" %}" />
+                <p class="p-3 text-start">Pernilla is the fourth generation at Carléns. She followed in her father's
+                    footsteps and achieved
+                    remarkable success as a junior hairstylist, winning gold in the Swedish Championship (SM), Nordic
+                    Championship (NM), European Championship (EM), and World Championship (VM). After renting a chair at
+                    several salons in the city, she became the co-owner of Carlen & Co along with Helene in 2006.
+                    Pernilla
+                    holds a journeyman's certificate in hairdressing.</p>
+            </div>
+            <div class="p-3 border-bottom">
+                <h3 class="p-1">Helene</h3>
+                <img class="img-thumbnail w-75" src="{% static "images/helen_top.jpg" %}" />
+                <p class="p-3 text-start">Helene started as a trainee at Carléns in 1987 and worked as an employee for
+                    many years. After renting a chair at another salon for a few years, she returned to Carléns in 2006,
+                    this time as a co-owner along with Pernilla. She holds a journeyman's certificate in hairdressing.
+                </p>
+            </div>
+            <div class="p-3 border-bottom">
+                <h3 class="p-1">Agneta</h3>
+                <img class="img-thumbnail w-75" src="{% static "images/agneta_top.jpg" %}" />
+                <p class="p-3 text-start">Agneta has previously owned her own salon and has also worked as an employee
+                    and rented a chair at several places in Stockholm. Since 2006, she has been renting a chair at
+                    Carlen & Co. She holds a journeyman's certificate in hairdressing.</p>
+            </div>
+        </div>
     </div>
 </div>
-
 
 {% endblock %}

@@ -11,4 +11,7 @@ def scheduler(request):
     return render(request, 'scheduler.html')
 
 def login(request):
-    return render(request, 'scheduler.html')
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
