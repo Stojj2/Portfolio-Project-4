@@ -24,5 +24,6 @@ urlpatterns = [
     path('scheduler/', scheduler, name="scheduler"),
     path('login/', login, name="login"),
     path('register/', register, name="register"),
+    path('accounts/', include('allauth.urls')),
 
 ]
