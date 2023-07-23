@@ -1,7 +1,7 @@
 # Hair Salon Booking System
 
 
-## How To
+## User Stories
 
 
 ## Features

@@ -3,12 +3,109 @@
 
 {% block content %}
 
-<div class="container-lg">
-    <div class="container-md --bs-body-color">
-        <h2>scheduler</h2>
+          <div class="row text-center p-3 d-flex justify-content-center">
+            <div class="col">
+              <select class="form-select mt-2" aria-label="Select option">
+                <option value="option1"></option>
+                {% for item in treatment %}
+                <option value="{{ forloop.counter }}">{{ item.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+        <div class="row text-center d-flex justify-content-center">
+            <div class="col">
+                <button class="btn btn-primary">&larr;</button>
+            </div>
+            <div class="col">
+                <h3>Week</h3>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary">&rarr;</button>
+            </div>
+        </div>
+
+        <div class="row mt-4 p-3 text-center d-flex justify-content-center">
+            <div class="col">
+                <h5>Mon</h5>
+                {% for item in slot %}
+                {% if item.date|date:'l' == 'Monday' %}
+                <div class="row p-1">
+                  <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                  <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Tue</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Tuesday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Wed</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Wednesday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'G' }} - {{ item.end_time|date:'G' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Thu</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Thursday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Fri</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Friday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Sat</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Saturday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <div class="col">
+              <h5>Sun</h5>
+              {% for item in slot %}
+              {% if item.date|date:'l' == 'Sunday' %}
+              <div class="row p-1">
+                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
+                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+        </div>
     </div>
-
-</div>
-
+</body>
 
 {% endblock %}
