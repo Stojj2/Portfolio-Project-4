@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Slot, User, Booked
-from .forms import BookingForm
+from .forms import BookingForm, EditForm
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
@@ -58,14 +58,29 @@ class Appointments(LoginRequiredMixin, View):
     template_name = 'Booking/appointments.html'
 
     def get(self, request, *args, **kwargs):
-
         booked = Booked.objects.all()
+        
         context = {
             'booked': booked,
         }
 
         return render(request, self.template_name, context)
 
+
+def edit_appointments(request, item_id):
+    item = get_object_or_404(Booked, id=item_id)
+    if request.method == 'POST':
+        edit_form = EditForm(request.POST, instance=item)
+        if edit_form.is_valid():
+            edit_form.save()
+            return redirect('appointments')
+
+
+    edit_form = EditForm(instance=item)
+    context = {
+        'edit_form': edit_form,
+    }
+    return render(request, 'Booking/edit_appointments.html', context)
 
 def home(request):
     return render(request, 'Booking/home.html')

@@ -17,7 +17,9 @@
                     <p>{{ item.slot }}</p>
                     <p>Comment:{{ item.comment }}</p>
                     <p>Customer:{{ item.customer }}</p>
-                    <button class="btn btn-primary m-2">Edit</button>
+                    <a href="/edit/{{ item.id }}">
+                        <button class="btn btn-primary m-2">Edit</button>
+                    </a>
                     <button class="btn btn-danger m-2">Delete</button>
                 </div>
             </div>
