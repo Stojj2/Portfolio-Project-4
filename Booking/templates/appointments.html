@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="d-flex justify-content-center">Appointments</h3>
+<p class="d-flex justify-content-center">You are viewing appointments for {{ user.username }}</p>
+
+{% for item in booked %}
+<!-- {% if item.customer == user.username %} -->
+<div class="container d-flex justify-content-center">
+    <div class="col">
+        <p class="row">{{ item.slot }}</p>
+        <p class="row bg-light">{{ item.comment }}</p>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary">Delete</button>
+    </div>
+</div>
+<!-- {% endif %} -->
+{% endfor %}
+
+{% endblock %}

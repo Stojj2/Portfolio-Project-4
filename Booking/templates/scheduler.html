@@ -1,111 +1,119 @@
 {% extends "base.html" %}
-
-
+{% load crispy_forms_tags %}
 {% block content %}
 
-          <div class="row text-center p-3 d-flex justify-content-center">
-            <div class="col">
-              <select class="form-select mt-2" aria-label="Select option">
-                <option value="option1"></option>
-                {% for item in treatment %}
-                <option value="{{ forloop.counter }}">{{ item.name }}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-
-        <div class="row text-center d-flex justify-content-center">
-            <div class="col">
-                <button class="btn btn-primary">&larr;</button>
-            </div>
-            <div class="col">
-                <h3>Week</h3>
-            </div>
-            <div class="col">
-                <button class="btn btn-primary">&rarr;</button>
-            </div>
-        </div>
-
-        <div class="row mt-4 p-3 text-center d-flex justify-content-center">
-            <div class="col">
-                <h5>Mon</h5>
-                {% for item in slot %}
-                {% if item.date|date:'l' == 'Monday' %}
-                <div class="row p-1">
-                  <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                  <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Tue</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Tuesday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Wed</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Wednesday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'G' }} - {{ item.end_time|date:'G' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Thu</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Thursday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Fri</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Friday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Sat</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Saturday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <div class="col">
-              <h5>Sun</h5>
-              {% for item in slot %}
-              {% if item.date|date:'l' == 'Sunday' %}
-              <div class="row p-1">
-                <input type="radio" class="btn-check" id="{{ forloop.counter }}" autocomplete="off" name="selected">
-                <label class="row-6 btn btn-primary" for="{{ forloop.counter }}">{{ item.start_time|date:'H' }} - {{ item.end_time|date:'H' }}</label>
-              </div>
-              {% endif %}
-              {% endfor %}
-            </div>
-        </div>
+<body>
+  <div class="container col">
+    <div class="m-2 card text-center">
+      <h4 class="card-header">Choose a slot</h4>
+      <p class="row d-flex justify-content-center"> Booking as {{ user.username }}</p>
+      <form class="row m-2 d-flex justify-content-center" method="post" style="margin-top: 1.3em;">
+        {{ booking_form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary m-2" >Submit</button>
+      </form>
     </div>
+  </div>
+
+  <!-- <div class="row m-3 text-center d-flex justify-content-center bg-light">
+    <div class="row m-5 text-center d-flex justify-content-center">
+      <div class="col">
+        <button class="btn btn-primary">&larr;</button>
+      </div>
+      <div class="col">
+        <h3>Week</h3>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="col">
+      <h6>Mon</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Monday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Tue</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Tuesday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }} <br> id-{{ item.id }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Wed</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Wednesday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Thu</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Thursday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Fri</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Friday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Sat</h6>
+      {% for item in slot %}
+      {% if item.date|date:'l' == 'Saturday' %}
+      <div class="row p-1">
+        <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+        <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+          {{ item.end_time|date:'G' }}</label>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col">
+      <h6>Sun</h5>
+        {% for item in slot %}
+        {% if item.date|date:'l' == 'Sunday' %}
+        <div class="row p-1">
+          <input type="radio" class="btn-check" id="{{ item.id }}" autocomplete="off" name="selected">
+          <label class="row-6 btn btn-primary" for="{{ item.id }}">{{ item.start_time|date:'G' }} -
+            {{ item.end_time|date:'G' }}</label>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+  </div> -->
 </body>
 
 {% endblock %}

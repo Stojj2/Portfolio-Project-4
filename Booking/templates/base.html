@@ -31,17 +31,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               booking
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">My Bookings</a></li>
-              <li><a class="dropdown-item" href="{% url 'scheduler' %}">New</a></li>
-              <li><a class="dropdown-item" href="#">Prices</a></li>
+              <li><a class="dropdown-item" href="{% url 'appointments' %}">My Appointments</a></li>
+              <li><a class="dropdown-item" href="{% url 'FreeSlots' %}">New</a></li>
             </ul>
           </li>
-          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
           </li>
