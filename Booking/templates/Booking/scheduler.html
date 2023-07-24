@@ -1,0 +1,19 @@
+{% extends "Booking/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<body>
+  <div class="container col">
+    <div class="m-2 card text-center">
+      <h4 class="card-header">Choose a slot</h4>
+      <p class="row d-flex justify-content-center"> Booking as {{ user.username }}</p>
+      <form class="row m-2 d-flex justify-content-center" method="post" style="margin-top: 1.3em;">
+        {{ booking_form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary m-2" >Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

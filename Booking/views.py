@@ -8,7 +8,7 @@ from django.contrib import messages
 
 
 class FreeSlots(LoginRequiredMixin, View):
-    template_name = 'scheduler.html'
+    template_name = 'Booking/scheduler.html'
 
     def get(self, request, *args, **kwargs):
         slot = Slot.objects.all()
@@ -20,13 +20,18 @@ class FreeSlots(LoginRequiredMixin, View):
         }
 
         return render(request, self.template_name, context)
-    
+
     def post(self, request, *args, **kwargs):
         form = BookingForm(data=request.POST)
 
         if form.is_valid():
             booking_instance = form.save(commit=False)
             booking_instance.customer = request.user
+            dubblebooked = Booked.objects.filter(customer=request.user, slot__date=booking_instance.slot.date).exists()
+
+            if dubblebooked:
+                return redirect('FreeSlots')
+
             booking_instance.save()
 
             # Update the reserved status of the chosen slot to 'True'
@@ -35,13 +40,12 @@ class FreeSlots(LoginRequiredMixin, View):
             booked_slot.reserved = True
             booked_slot.save()
 
-            return redirect('home')
+            return redirect('appointments')
         else:
             slots = Slot.objects.all()
             stylist = User.objects.filter(is_staff=True)
             booking_form = BookingForm()
 
-    
             context = {
                 'slot': slot,
                 'booking_form': booking_form
@@ -50,10 +54,8 @@ class FreeSlots(LoginRequiredMixin, View):
             return render(request, self.template_name, context)
 
 
-
-
 class Appointments(LoginRequiredMixin, View):
-    template_name = 'appointments.html'
+    template_name = 'Booking/appointments.html'
 
     def get(self, request, *args, **kwargs):
 
@@ -66,7 +68,8 @@ class Appointments(LoginRequiredMixin, View):
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'Booking/home.html')
+
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'Booking/about.html')
