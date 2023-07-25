@@ -66,7 +66,6 @@ class Appointments(LoginRequiredMixin, View):
 
         return render(request, self.template_name, context)
 
-
 def edit_appointments(request, item_id):
     item = get_object_or_404(Booked, id=item_id)
     if request.method == 'POST':
@@ -81,6 +80,15 @@ def edit_appointments(request, item_id):
         'edit_form': edit_form,
     }
     return render(request, 'Booking/edit_appointments.html', context)
+
+def delete_appointments(request, item_id):
+    item = get_object_or_404(Booked, id=item_id)
+    slot_instance = item.slot
+    slot_instance.reserved = False
+    slot_instance.save()
+    item.delete()
+    
+    return redirect('appointments')
 
 def home(request):
     return render(request, 'Booking/home.html')
