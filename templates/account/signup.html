@@ -5,8 +5,8 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container col-6 text-center">
-  <h1>{% trans "Sign Up" %}</h1>
+<div class="container col-6 text-center p-3">
+  <h1 class="row-3 d-flex justify-content-center display-5">{% trans "Sign Up" %}</h1>
   <div>
     <p>
       {% blocktrans %}
@@ -15,7 +15,7 @@
     </p>
   </div>
   <div>
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    <form class="signup row d-flex justify-content-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
       {{ form.as_p }}
       {% if redirect_field_value %}

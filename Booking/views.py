@@ -4,7 +4,6 @@ from .models import Slot, User, Booked
 from .forms import BookingForm, EditForm
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
 
 
 class FreeSlots(LoginRequiredMixin, View):
@@ -30,6 +29,7 @@ class FreeSlots(LoginRequiredMixin, View):
             dubblebooked = Booked.objects.filter(customer=request.user, slot__date=booking_instance.slot.date).exists()
 
             if dubblebooked:
+                messages.error(request, "you already have a booked slot on this date")
                 return redirect('FreeSlots')
 
             booking_instance.save()
@@ -59,12 +59,18 @@ class Appointments(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         booked = Booked.objects.all()
-        
+
+        # Checking if logged in user has any booked appointments
+        user_booked_slots = Booked.objects.filter(customer=request.user)
+        has_booked_slots = user_booked_slots.exists()
+
         context = {
             'booked': booked,
+            'has_booked_slots': has_booked_slots,
         }
 
         return render(request, self.template_name, context)
+
 
 def edit_appointments(request, item_id):
     item = get_object_or_404(Booked, id=item_id)
@@ -74,12 +80,12 @@ def edit_appointments(request, item_id):
             edit_form.save()
             return redirect('appointments')
 
-
     edit_form = EditForm(instance=item)
     context = {
         'edit_form': edit_form,
     }
     return render(request, 'Booking/edit_appointments.html', context)
+
 
 def delete_appointments(request, item_id):
     item = get_object_or_404(Booked, id=item_id)
@@ -87,8 +93,8 @@ def delete_appointments(request, item_id):
     slot_instance.reserved = False
     slot_instance.save()
     item.delete()
-    
     return redirect('appointments')
+
 
 def home(request):
     return render(request, 'Booking/home.html')

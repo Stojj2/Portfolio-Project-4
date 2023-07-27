@@ -2,39 +2,38 @@
 
 {% block content %}
 <body>
-    <div class="container-md justify-content-center d-flex">
+    <div class="container-md justify-content-center d-flex mt-3">
         <div class="col-12">
-            <h3 class="row-3 d-flex justify-content-center">Appointments</h3>
-            <p class="row-3 d-flex justify-content-center">You are viewing appointments for {{ user.username }}</p>
+            <h2 class="row-3 d-flex justify-content-center display-5">Appointments</h2>
+            <p class="row-3 d-flex justify-content-center">You are viewing appointments for&nbsp;<strong>{{ user.username }}</strong></p>
         </div>
     </div>
-    
-    {% for item in booked %}
-        {% if user == item.customer %}
-        <div class="d-flex justify-content-center">
-            <div class="container card m-2 bg-light text-center" style="width: 18rem;">
-                <div class="row card-body d-flex justify-content-center">
-                    <p>{{ item.slot }}</p>
-                    <p>Comment:{{ item.comment }}</p>
-                    <p>Customer:{{ item.customer }}</p>
-                    <a href="/edit/{{ item.id }}">
-                        <button class="btn btn-primary m-2">Edit</button>
-                    </a>
-                    <a href="/delete/{{ item.id }}">
-                        <button class="btn btn-danger m-2">Delete</button>
-                    </a>
+    {% if has_booked_slots %}
+        {% for item in booked %}
+            {% if user == item.customer %}
+            <div class="d-flex justify-content-center mt-3">
+                <div class="container card bg-light text-center" style="width: 18rem;">
+                    <div class="row card-body d-flex justify-content-center">
+                        <p class="card-header">{{ item.slot }}</p>
+                        <p class="card-text">Comment:<br>{{ item.comment }}</p>
+                        <a href="/edit/{{ item.id }}">
+                            <button class="btn btn-primary m-2">Edit</button>
+                        </a>
+                        <a href="/delete/{{ item.id }}">
+                            <button class="btn btn-danger m-2">Delete</button>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endif %}
-    {% empty %}
-        <div class="container-md text-center">
-            <div class="col-6">
-                <h5 class="bg-light d-flex justify-content-center">You don't have any booked slots!</h5>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="d-flex justify-content-center">
+            <div class="container card m-2 bg-light text-center" style="width: 25rem;">
+                <h5 class="row card-body d-flex justify-content-center">You don't have any booked slots!</h5>
             </div>
-        </div>    
+        </div>   
+    {% endif %}
 </body>
-    {% endfor %}
-
 
 {% endblock %}

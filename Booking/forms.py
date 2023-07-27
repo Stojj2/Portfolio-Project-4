@@ -17,10 +17,8 @@ class BookingForm(forms.ModelForm):
 class EditForm(forms.ModelForm):
     class Meta:
         model = Booked
-        fields = ('slot', 'comment',)
+        fields = ('comment',)
         widgets = {
             'comment': forms.Textarea(attrs={'rows': 3}),
         }
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['slot'].queryset = Slot.objects.filter(reserved=False)
+

@@ -3,14 +3,19 @@
 {% block content %}
 
 <body>
-  <div class="container col">
-    <div class="m-2 card text-center">
-      <h4 class="card-header">Choose a slot</h4>
-      <p class="row d-flex justify-content-center"> Booking as {{ user.username }}</p>
+  <div class="container-md justify-content-center d-flex mt-3">
+    <div class="col-12">
+      <h2 class="row-3 d-flex justify-content-center display-5">Booking</h2>
+      <p class="row-3 d-flex justify-content-center">You are booking for&nbsp;<strong>{{ user.username }}</strong></p>
+    </div>
+  </div>
+  <div class="container col mt-3">
+    <div class="card text-center">
+      <h5 class="card-header mt-1">Choose a slot</h5>
       <form class="row m-2 d-flex justify-content-center" method="post" style="margin-top: 1.3em;">
         {{ booking_form | crispy }}
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary m-2" >Submit</button>
+        <button type="submit" class="btn btn-primary m-2">Submit</button>
       </form>
     </div>
   </div>
