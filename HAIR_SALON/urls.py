@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Booking.views import about, home, FreeSlots, Appointments, edit_appointments, delete_appointments
+from Booking import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
-    path('about', about, name="about"),
-    path('scheduler', FreeSlots.as_view(), name="FreeSlots"),
-    path('appointments', Appointments.as_view(), name="appointments"),
+    path('', views.home, name="home"),
+    path('about', views.about, name="about"),
+    path('scheduler', views.FreeSlots.as_view(), name="FreeSlots"),
+    path('appointments', views.Appointments.as_view(), name="appointments"),
     path('accounts', include('allauth.urls')),
-    path('edit/<item_id>', edit_appointments, name="edit_appointments"),
-    path('delete/<item_id>', delete_appointments, name="delete_appointments"),
-
-
+    path('edit/<item_id>', views.edit_appointments, name="edit_appointments"),
+    path('delete/<item_id>', views.delete_appointments, name="delete_appointments"),
 ]
+
+# Custom error views for 404 Not Found and 500 Server Error
+handler404 = views.handler404
+handler500 = views.handler500

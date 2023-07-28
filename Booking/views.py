@@ -4,6 +4,7 @@ from .models import Slot, User, Booked
 from .forms import BookingForm, EditForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 class FreeSlots(LoginRequiredMixin, View):
@@ -15,7 +16,8 @@ class FreeSlots(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         """
-        Get booking information from database and renders the scheduler.html page
+        Get booking information from database
+        and renders the scheduler.html page
         """
 
         slot = Slot.objects.all()
@@ -30,7 +32,8 @@ class FreeSlots(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         """
-        Posting booking information to database and renders the appointments.html page
+        Posting booking information to database
+        and renders the appointments.html page
         """
 
         form = BookingForm(data=request.POST)
@@ -38,10 +41,14 @@ class FreeSlots(LoginRequiredMixin, View):
         if form.is_valid():
             booking_instance = form.save(commit=False)
             booking_instance.customer = request.user
-            dubblebooked = Booked.objects.filter(customer=request.user, slot__date=booking_instance.slot.date).exists()
 
+            # Checking if user have more than one booking for each date
+            user = request.user
+            date = booking_instance.slot.date
+            bookings = Booked.objects.filter(customer=user, slot__date=date)
+            dubblebooked = bookings.exists()
             if dubblebooked:
-                messages.error(request, "you already have a booked slot on this date")
+                messages.error(request, "Slot already booked on this date.")
                 return redirect('FreeSlots')
 
             booking_instance.save()
@@ -75,7 +82,8 @@ class Appointments(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         """
-        Get booking information from database and renders the appointments.html page
+        Get booking information from database
+        and renders the appointments.html page
         """
 
         booked = Booked.objects.all()
@@ -92,12 +100,16 @@ class Appointments(LoginRequiredMixin, View):
         return render(request, self.template_name, context)
 
 
+@login_required
 def edit_appointments(request, item_id):
     """
-    Edit the item from the database, renders the edit_appointments.html page
+    Edit the item from the database
+    and renders the edit_appointments.html page
     """
-
     item = get_object_or_404(Booked, id=item_id)
+    if request.user != item.customer:
+        return HttpResponseForbidden("You don't have permission!")
+
     if request.method == 'POST':
         edit_form = EditForm(request.POST, instance=item)
         if edit_form.is_valid():
@@ -111,12 +123,16 @@ def edit_appointments(request, item_id):
     return render(request, 'Booking/edit_appointments.html', context)
 
 
+@login_required
 def delete_appointments(request, item_id):
     """
-    Delete the item from the database and setting the Slot.reserved status to False
+    Delete the item from the database
+    and setting the Slot.reserved status to False
     """
 
     item = get_object_or_404(Booked, id=item_id)
+    if request.user != item.customer:
+        return HttpResponseForbidden("You don't have permission!")
     slot_instance = item.slot
     slot_instance.reserved = False
     slot_instance.save()
@@ -130,3 +146,16 @@ def home(request):
 
 def about(request):
     return render(request, 'Booking/about.html')
+
+
+def handler404(request, *args, **argv):
+    response = render_to_response('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+def handler404(request, exception):
+    return render(request, 'Booking/404.html', status=404)
+
+def handler500(request):
+    return render(request, 'Booking/500.html', status=500)
