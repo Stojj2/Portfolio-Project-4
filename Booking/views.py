@@ -7,10 +7,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class FreeSlots(LoginRequiredMixin, View):
+    """
+    FreeSlots class with a post and get method
+    """
+
     template_name = 'Booking/scheduler.html'
 
     def get(self, request, *args, **kwargs):
-        # Get booking information from database and renders the scheduler.html page
+        """
+        Get booking information from database and renders the scheduler.html page
+        """
+
         slot = Slot.objects.all()
         booking_form = BookingForm()
 
@@ -20,9 +27,12 @@ class FreeSlots(LoginRequiredMixin, View):
         }
 
         return render(request, self.template_name, context)
-    
+
     def post(self, request, *args, **kwargs):
-        # Posting booking information to database and renders the appointments.html page
+        """
+        Posting booking information to database and renders the appointments.html page
+        """
+
         form = BookingForm(data=request.POST)
 
         if form.is_valid():
@@ -36,7 +46,7 @@ class FreeSlots(LoginRequiredMixin, View):
 
             booking_instance.save()
 
-            # Update the reserved status of the chosen slot to 'True'
+            # Update the Slot.reserved status of the chosen Slot to 'True'
             slot_id = form.cleaned_data['slot'].id
             booked_slot = Slot.objects.get(pk=slot_id)
             booked_slot.reserved = True
@@ -57,10 +67,17 @@ class FreeSlots(LoginRequiredMixin, View):
 
 
 class Appointments(LoginRequiredMixin, View):
+    """
+    Appointments class with a get method
+    """
+
     template_name = 'Booking/appointments.html'
 
     def get(self, request, *args, **kwargs):
-        # Get booking information from database and renders the appointments.html page
+        """
+        Get booking information from database and renders the appointments.html page
+        """
+
         booked = Booked.objects.all()
 
         # Checking if logged in user has any booked appointments
@@ -76,7 +93,10 @@ class Appointments(LoginRequiredMixin, View):
 
 
 def edit_appointments(request, item_id):
-    # Edit the item from the database, renders the edit_appointments.html page
+    """
+    Edit the item from the database, renders the edit_appointments.html page
+    """
+
     item = get_object_or_404(Booked, id=item_id)
     if request.method == 'POST':
         edit_form = EditForm(request.POST, instance=item)
@@ -92,7 +112,10 @@ def edit_appointments(request, item_id):
 
 
 def delete_appointments(request, item_id):
-    # Delete the item from the database and setting the slot reserved status to False
+    """
+    Delete the item from the database and setting the Slot.reserved status to False
+    """
+
     item = get_object_or_404(Booked, id=item_id)
     slot_instance = item.slot
     slot_instance.reserved = False

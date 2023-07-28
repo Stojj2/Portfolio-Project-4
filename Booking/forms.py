@@ -1,7 +1,13 @@
 from django import forms
 from .models import Booked, Slot
 
+
 class BookingForm(forms.ModelForm):
+    """
+    Form for booking a time slot and
+    Setting the slot list to only show slots that is not reserved
+    """
+
     class Meta:
         model = Booked
         fields = ('slot', 'comment',)
@@ -15,6 +21,10 @@ class BookingForm(forms.ModelForm):
 
 
 class EditForm(forms.ModelForm):
+    """
+    Form for editing a time slot
+    """
+
     class Meta:
         model = Booked
         fields = ('comment',)
