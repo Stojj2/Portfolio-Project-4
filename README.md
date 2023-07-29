@@ -111,16 +111,6 @@ With this application, both salon owners and customers can enjoy a hassle-free a
 3. **Booked:** This model represents the booked appointments. It includes foreign keys to the Slot and User models, as each booking is associated with a specific slot and user (customer). The model also includes a comment field for additional notes about the booking.
 
 
-## Testing
-
-
- ### Validator testing
-
-
-  ### Bugs
-
-
-
 ## Technology 
   - **GitPod**
     - GitPod where used for writing all code 
