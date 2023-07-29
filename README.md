@@ -90,27 +90,62 @@ I made a deliberate decision to focus on manual testing rather than implementing
        <br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="250"/>
        3. After filling in the form and clicking "submit," you will be redirected to the appointments page where your booked slot will be visible.
       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
-<br><br><br><br>
+      <br><br><br><br>
      - **`Test 2 - Multiple booking protection` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Booking" button from the menu.
        <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
        2. Press the "New" button from the dropdown list
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
-       2. The "appointments" page should be diplayed on the screen
+       2. The "booking" page should be diplayed on the screen
        <br><img src="docs/features/booking-dubblebooking.png" alt="mobile mockup, booking page" width="250"/>
        3. Upon submitting the form with a slot that has the same date as the first one, an error message will be displayed indicating that you already have a booking on that day.
        <br><img src="docs/features/booking-dubbelbooking_error.png" alt="mobile mockup, booking page with error message" width="250"/>
-     
-      
 
 #### 4. [Read Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/3)
   - As a **customer** I can **see my booked appointments** so that **I have a record of the details.**
-       - **`Test 1 - View appointments` <span style="color:green">✓</span>**
-
+     - **`Test 1 - Read booking` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Booking" button from the menu.
+       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
+       2. Press the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. The "appointments" page should be diplayed on the screen, you should see the appointments that you have booked
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments page" width="250"/>
 
 #### 5. [Update Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/4)
   - As a **customer** I can **update my appointment** so that **I can change it at my convenience.**
-       - **`Test 1 - View appointments` <span style="color:green">✓</span>**
+       - **`Test 1 - Update appointment` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
+       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       3. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, navbar on phone" width="250"/>
+       3. Click the "Edit" button on the data card you wish to modify, update the comment as needed, and then click the "Update" button to save the changes.
+       <br><img src="docs/features/edit-appointments.png" alt="mobile mockup, edit-appointments page" width="250"/>
+       4. The appointment should have been updated with the new comment
+       <br><img src="docs/features/appointment-edited.png" alt="mobile mockup, edit-appointments page" width="250"/>
+       <br><br><br><br>
+
+     - **`Test 2 - Protection for updating another users appointment` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
+       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       3. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, navbar on phone" width="250"/>
+       3. Click the "Edit" button on the data card you wish to modify
+       <br><img src="docs/features/edit-appointments.png" alt="mobile mockup, edit-appointments page" width="250"/>
+       4. Update the booking number in the last part of the URL's to try to edit an appointment made by a different user.
+       <br>
+       User-1 (Loggedin)
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/12
+       <br>
+       to
+       <br>
+       User-2 (Not-Loggedin)
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/11
+       <br><img src="docs/features/error-500.png" alt="mobile mockup, error 500" width="250"/>
+       
 
 #### 6. [Delete Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/5)
   - As a **customer** I can **delete my booked appointment** so that **the information will reach the hairdresser**
