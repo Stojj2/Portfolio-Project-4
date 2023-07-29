@@ -13,42 +13,35 @@ With this application, both salon owners and customers can enjoy a hassle-free a
 ### Existing Features
 
 1. **Home Page And Navigation:** <br> An landing page providing an overview of the hair salon. <br> Non-logged-in users will be presented with a message. The navigation bar will follow the user to other pages.
-<br><img src="docs/features/non_signed_in-home.png" alt="mobile mockup, home page" width="200"/>
-    <img src="docs/features/sign_in-home.png" alt="mobile mockup, home page loged in" width="200"/>
-    <img src="docs/features/signed_in-menu.png" alt="mobile mockup, menu loged in" width="200"/>
+
 
 2. **About Page:** <br> A dedicated page containing detailed information about the salon, its history, team, and philosophy.
-<br><img src="docs/features/about.png" alt="mobile mockup, about page" width="200"/>
+
 
 3. **User Authentication:** <br> The application offers user registration and login functionalities using Django's built-in authentication system. When signed in the user will have access to the booking system.
-<br><img src="docs/features/register_page.png" alt="mobile mockup, register page" width="200"/>
-    <img src="docs/features/sign_in.png" alt="mobile mockup, sign in page" width="200"/>
+
 
 4. **Booking Appointments:** <br> Customers can book appointments for specific time slots by selecting the desired slot from a dropdown list. However, they are prevented from booking more than one slot on a specific day.
-<br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="200"/>
+
 
 5. **Edit and Delete Appointments:** <br> Customers can edit and delete their booked appointments as needed, subject to permission checks to ensure only the original customer can modify the booking.
-<br><img src="docs/features/appointments.png" alt="mobile mockup,appointments page" width="200"/>
-    <img src="docs/features/edit-appointments.png" alt="mobile mockup, edit appointments page" width="200"/>
-    <img src="docs/features/appointments_no-bookings.png" alt="mobile mockup, appointments page with no bookings" width="200"/>
+
 
 6. **Confirmation Messages:** <br> The application provides confirmation messages and error messages to guide users through the booking process and notify them of successful or failed actions.
-<br><img src="docs/features/sign_in-successfull.png" alt="mobile mockup, successful login" width="200"/>
-    <img src="docs/features/logout-succesfully.png" alt="mobile mockup,successful log out" width="200"/>
-    <img src="docs/features/booking-dubbelbooking_error.png" alt="mobile mockup, dubble booked error" width="200"/>
+
 
 7. **Responsive Design:** The frontend templates are designed using Bootstrap, making the application mobile-friendly and accessible across different devices.
  
 8. **Custom Error Pages:** <br> Custom error views are implemented to display user-friendly messages for 404 Not Found and 500 Server Error pages.
-<br><img src="docs/features/error-404.png" alt="mobile mockup, 404 error page" width="200"/>
+
 
 ### Future Features
 
-1. - **Separate Schedules For Each Hairdresser**
+1. **Separate Schedules For Each Hairdresser**
 
-2. - **Manager View**
+2. **Manager View**
 
-3. - **Employee View**
+3. **Employee View**
 
 
 ## User Stories And Testing
@@ -115,11 +108,9 @@ I made a deliberate decision to focus on manual testing rather than implementing
   - As a **customer** I can **update my appointment** so that **I can change it at my convenience.**
        - **`Test 1 - Update appointment` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
-       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
-       2. Click the "My Appointments" button from the dropdown list
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
-       3. Click the "My Appointments" button from the dropdown list
-       <br><img src="docs/features/appointments.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
        3. Click the "Edit" button on the data card you wish to modify, update the comment as needed, and then click the "Update" button to save the changes.
        <br><img src="docs/features/edit-appointments.png" alt="mobile mockup, edit-appointments page" width="250"/>
        4. The appointment should have been updated with the new comment
@@ -128,29 +119,53 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
      - **`Test 2 - Protection for updating another users appointment` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
-       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
-       2. Click the "My Appointments" button from the dropdown list
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
-       3. Click the "My Appointments" button from the dropdown list
-       <br><img src="docs/features/appointments.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
        3. Click the "Edit" button on the data card you wish to modify
        <br><img src="docs/features/edit-appointments.png" alt="mobile mockup, edit-appointments page" width="250"/>
-       4. Update the booking number in the last part of the URL's to try to edit an appointment made by a different user.
+       4. Update the booking number in the last part of the URL to try to edit an appointment made by a different user.
        <br>
        User-1 (Loggedin)
-       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/12
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/"user 1 booking nr"
        <br>
        to
        <br>
        User-2 (Not-Loggedin)
-       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/11
+       Use a booking number that is in another users appointments list
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/edit/"another users booking nr"
        <br><img src="docs/features/error-500.png" alt="mobile mockup, error 500" width="250"/>
        
 
 #### 6. [Delete Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/5)
   - As a **customer** I can **delete my booked appointment** so that **the information will reach the hairdresser**
 
- <br>
+       - **`Test 1 - Delete appointment` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
+       3. Click the "Delete" button on the data card you wish to delete. Your booking should disappear from the appointments view
+       <br><img src="docs/features/appointments_no-bookings.png" alt="mobile mockup, appointments" width="250"/>
+       <br><br><br><br>
+
+     - **`Test 2 - Protection for deleting another users appointment` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. Click the "My Appointments" button from the dropdown list
+       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
+       
+       4. change the URL as described bellow to try to delete an appointment made by a different user.
+       <br>
+       User-1 (Loggedin)
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/appointments
+       <br>
+       to
+       <br>
+       User-2 (Not-Loggedin)
+       Use a booking number that is in another users appointments list
+       https://hairsalon4-ac0e725d37cb.herokuapp.com/delete/"another users booking nr"
+       <br><img src="docs/features/error-500.png" alt="mobile mockup, error 500" width="250"/>
 
 ### Open User Stories
 
