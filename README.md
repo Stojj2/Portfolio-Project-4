@@ -235,3 +235,16 @@ This project was deployed to Heroku.
 
 ## Credits
 
+**Tomas Jansson** -  For pictures and media from the hair salong CARLEN & CO <br>
+http://www.scubasite.nu/
+
+**Rohit Sharma** - For mentoring me thru this project
+
+**Django** - For the development of this full-stack web application, providing a user-friendly interface and robust features. It's a powerful tool that simplified and accelerated the entire process <br>
+https://www.djangoproject.com
+
+**Bootstrap** - for quick design and style developing <br>
+https://getbootstrap.com
+
+**Code Institute** - For providing invaluable walk-through projects that significantly aided in resolving numerous issues. <br>
+https://codeinstitute.net/
