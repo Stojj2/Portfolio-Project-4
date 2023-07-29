@@ -61,27 +61,57 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 #### 1. [Welcome/About Page](https://github.com/Stojj2/Portfolio-Project-4/issues/10)
    - As a **user** I can **get basic information about the salon without login in** so that **I am aware of open times and location**
-     - **`Test 1` <span style="color:green">✓</span>**
-       - Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "about" button from the menu.
-       - The about view is being displayed on the screen.
-        - <img src="docs/features/about.png" alt="mobile mockup, dubble booked error" width="200"/>
+<br><br>
+     - **`Test 1 - Viewing the about page` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "about" button from the menu.
+       2. The about view is being displayed on the screen.
+        <br><img src="docs/features/about.png" alt="mobile mockup, about page" width="250"/>
 
 #### 2. [Account Registration](https://github.com/Stojj2/Portfolio-Project-4/issues/9)
   - As a **customer** I can **create a user account** so that **I can book and view my appointments**
+<br><br>
+     - **`Test 1 - Register an account` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Register" button from the menu.
+       2. The signup form should be displayed on the screen.
+        <br><img src="docs/features/register_page.png" alt="mobile mockup, register page" width="250"/>
+       3. Fill in the form and press "Sign Up"
+       4. The home page should be displayed on the screen with a message that says successfully signed in
+        <br><img src="docs/features/sign_in-successfull.png" alt="mobile mockup, successful message" width="250"/>
 
-#### 3. [View Available Time Slots](https://github.com/Stojj2/Portfolio-Project-4/issues/6)
-  - As a **customer** I can **see available time slots** so that **I can plan my appointment**
+#### 3. [Create Booking](https://github.com/Stojj2/Portfolio-Project-4/issues/1)
+  - As a **customer** I can **view the list of available times offered by the salon** so that **I can book the one that suits my needs.**
+<br><br>
+     - **`Test 1 - Create booking` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Booking" button from the menu.
+       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
+       2. Press the "New" button from the dropdown list
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. The "appointments" page should be diplayed on the screen
+       <br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="250"/>
+       3. After filling in the form and clicking "submit," you will be redirected to the appointments page where your booked slot will be visible.
+      <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
 
-#### 4. [Create Booking](https://github.com/Stojj2/Portfolio-Project-4/issues/1)
-  - As a **customer** I can **view the list of available times offered by the salon** so that **I can choose the one that suits my needs.**
+     - **`Test 2 - Multiple booking protection` <span style="color:green">✓</span>**
+       1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Booking" button from the menu.
+       <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
+       2. Press the "New" button from the dropdown list
+       <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
+       2. The "appointments" page should be diplayed on the screen
+       <br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="250"/>
+       3. After filling in the form and clicking "submit," you will be redirected to the appointments page where your booked slot will be visible.
+     
+      
 
-#### 5. [Read Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/3)
+#### 4. [Read Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/3)
   - As a **customer** I can **see my booked appointments** so that **I have a record of the details.**
+       - **`Test 1 - View appointments` <span style="color:green">✓</span>**
 
-#### 6. [Update Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/4)
+
+#### 5. [Update Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/4)
   - As a **customer** I can **update my appointment** so that **I can change it at my convenience.**
+       - **`Test 1 - View appointments` <span style="color:green">✓</span>**
 
-#### 7 [Delete Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/5)
+#### 6. [Delete Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/5)
   - As a **customer** I can **delete my booked appointment** so that **the information will reach the hairdresser**
 
  <br>
