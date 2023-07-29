@@ -64,7 +64,7 @@ I made a deliberate decision to focus on manual testing rather than implementing
 <br><br>
      - **`Test 1 - Viewing the about page` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "about" button from the menu.
-       2. The about view is being displayed on the screen.
+       2. The about view should be displayed on the screen.
         <br><img src="docs/features/about.png" alt="mobile mockup, about page" width="250"/>
 
 #### 2. [Account Registration](https://github.com/Stojj2/Portfolio-Project-4/issues/9)
@@ -86,19 +86,20 @@ I made a deliberate decision to focus on manual testing rather than implementing
        <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
        2. Press the "New" button from the dropdown list
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
-       2. The "appointments" page should be diplayed on the screen
+       2. The "booking" page should be diplayed on the screen
        <br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="250"/>
        3. After filling in the form and clicking "submit," you will be redirected to the appointments page where your booked slot will be visible.
       <br><img src="docs/features/appointments.png" alt="mobile mockup, appointments with booking" width="250"/>
-
+<br><br><br><br>
      - **`Test 2 - Multiple booking protection` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and press the "Booking" button from the menu.
        <br><img src="docs/features/signed_in-menu.png" alt="mobile mockup, navbar/booking on phone" width="250"/>
        2. Press the "New" button from the dropdown list
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
        2. The "appointments" page should be diplayed on the screen
-       <br><img src="docs/features/booking.png" alt="mobile mockup, booking page" width="250"/>
-       3. After filling in the form and clicking "submit," you will be redirected to the appointments page where your booked slot will be visible.
+       <br><img src="docs/features/booking-dubblebooking.png" alt="mobile mockup, booking page" width="250"/>
+       3. Upon submitting the form with a slot that has the same date as the first one, an error message will be displayed indicating that you already have a booking on that day.
+       <br><img src="docs/features/booking-dubbelbooking_error.png" alt="mobile mockup, booking page with error message" width="250"/>
      
       
 
