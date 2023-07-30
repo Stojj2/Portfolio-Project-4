@@ -43,6 +43,18 @@ With this application, both salon owners and customers can enjoy a hassle-free a
 
 3. **Employee View**
 
+## Data Model
+<img src="docs/images/ERD.png" alt="mobile mockup, 404 error page" width="700"/>
+
+
+
+ **The relationships between the models are as follows:** 
+
+1. **User:**<br> This is the built-in Django User model, representing the users of the application. It contains fields like username, email, and password.
+
+2. **Slot:**<br> This model represents the available time slots for appointments. It is related to the User model using a foreign key, as each slot belongs to a specific stylist (user). The model includes fields for date, start time, end time, and a boolean field to indicate whether the slot is reserved or not.
+
+3. **Booked:**<br> This model represents the booked appointments. It includes foreign keys to the Slot and User models, as each booking is associated with a specific slot and user (customer). The model also includes a comment field for additional notes about the booking.
 
 ## User Stories And Testing
 
@@ -182,21 +194,40 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 ### Validator testing
 
+#### HTML
+1. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2F
+<br>
+2. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2Fabout
 
-### Bugs
+**Bugs**
+1. W3 error from having a body element in all templates
+   - element replaced with a div element. 
 
-## Data Model
-<img src="docs/images/ERD.png" alt="mobile mockup, 404 error page" width="700"/>
+#### Python
+
+**admin.py**
+<br><img src="docs/testing/admin.py.png" alt="PEP8" width="1000"/>
+
+**forms.py**
+<br><img src="docs/testing/forms.py.png" alt="PEP8" width="1000"/>
+
+**models.py**
+<br><img src="docs/testing/models.py.png" alt="PEP8" width="1000"/>
+
+**views.py**
+<br><img src="docs/testing/views.py.png" alt="PEP8" width="1000"/>
+
+**Bugs**
+1. Long line errors
+   - shortening f-strings
 
 
- **The relationships between the models are as follows:** 
+#### CSS
+**style.css**
+<br><img src="docs/testing/style.css.png" alt="CSS picture" width="1000"/>
 
-1. **User:**<br> This is the built-in Django User model, representing the users of the application. It contains fields like username, email, and password.
-
-2. **Slot:**<br> This model represents the available time slots for appointments. It is related to the User model using a foreign key, as each slot belongs to a specific stylist (user). The model includes fields for date, start time, end time, and a boolean field to indicate whether the slot is reserved or not.
-
-3. **Booked:**<br> This model represents the booked appointments. It includes foreign keys to the Slot and User models, as each booking is associated with a specific slot and user (customer). The model also includes a comment field for additional notes about the booking.
-
+**Bugs**
+**0**
 
 ## Technology 
   - **GitPod**
