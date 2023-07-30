@@ -284,18 +284,43 @@ This project was deployed to Heroku.
     - NOTE!
       - [GitPod webbrowser plugin](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki) To access this button, it is necessary to install this plugin on your browser.
 
-## Credits
 
-**Tomas Jansson** -  For pictures and media from the hair salong CARLEN & CO <br>
+## Fonts and color
+- Webpage will use Bootstraps standard colors
+   - Grey - Bootstrap "light"
+   - Black - Bootstrap "black"
+- The font will also be Bootstrap standard
+   - Color of text
+     - White
+     - Black
+
+## Wireframe 
+Wireframes are attached to the user stories. Se "User Stories And Testing" section
+
+
+## Supported screens and browsers
+  - For this web page different screen sizes were tested and no errors were found. This specific sizes were validated
+    - **Desktop** 1920×1080
+      - For this resolution the media query will style the website with new style
+    - **Tablet** 768x1024
+    - **Mobile** 360x640
+  - Browsers 
+    - Google Chrom
+
+## Credits
+Special thanks to the following individuals and resources for their valuable contributions to this project:
+<br><br>
+
+**Tomas Jansson** -  For generously providing pictures and media from the hair salon CARLEN & CO, enhancing the visual appeal of the application. <br>
 http://www.scubasite.nu/
 
-**Rohit Sharma** - For mentoring me thru this project
+**Rohit Sharma** - For the expert guidance and mentorship throughout the development process, ensuring the project's success and quality.
 
-**Django** - For the development of this full-stack web application, providing a user-friendly interface and robust features. It's a powerful tool that simplified and accelerated the entire process <br>
+**Code Institute** - For providing invaluable walk-through projects that significantly aided in resolving numerous issues, and for the Code Institute student template for Gitpod, which was used for this project.<br>
+https://codeinstitute.net/
+
+**Django** - A powerful full-stack web application development framework, enabling the creation of a user-friendly interface and robust features for this project. Learn more about Django here. <br>
 https://www.djangoproject.com
 
-**Bootstrap** - for quick design and style developing <br>
+**Bootstrap** - For facilitating quick and efficient design and style development, allowing for a visually appealing and responsive application. Discover more about Bootstrap here. <br>
 https://getbootstrap.com
-
-**Code Institute** - For providing invaluable walk-through projects that significantly aided in resolving numerous issues. <br>
-https://codeinstitute.net/
