@@ -194,7 +194,7 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 ## Validator testing
 
-#### HTML
+### HTML
 1. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2F
 <br>
 
@@ -204,7 +204,7 @@ I made a deliberate decision to focus on manual testing rather than implementing
 1. W3 error from having a body element in all templates. should only be in base.html file
    - element replaced with a div element. 
 
-#### Python
+### Python
 
 **admin.py**
 <br><img src="docs/testing/admin.py.png" alt="PEP8" width="1000"/>
@@ -223,14 +223,14 @@ I made a deliberate decision to focus on manual testing rather than implementing
    - shortening f-strings
 
 
-#### CSS
+### CSS
 **style.css**
 <br><img src="docs/testing/style.css.png" alt="CSS picture" width="1000"/>
 
 **Bugs**
 **0**
 
-#### Lighthouse
+### Lighthouse
 **Desktop**
 <br><img src="docs/testing/signout-desktop.png" alt="Lighthouse" width="300"/>
 <img src="docs/testing/signin-desktop.png" alt="Lighthouse" width="300"/>
