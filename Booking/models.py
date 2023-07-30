@@ -10,7 +10,11 @@ class Slot(models.Model):
     reserved = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Slot for {self.stylist.username} on {self.date} ({self.start_time} - {self.end_time})"
+        return (
+            f"Slot for {self.stylist.username} "
+            f"on {self.date} "
+            f"({self.start_time} - {self.end_time})"
+            )
 
 
 class Booked(models.Model):
@@ -19,4 +23,7 @@ class Booked(models.Model):
     comment = models.TextField(blank=True)
 
     def __str__(self):
-        return f"Booking for {self.customer.username} on {self.slot.start_time}"
+        return (
+            f"Booking for {self.customer.username} "
+            f"on {self.slot.start_time}"
+            )
