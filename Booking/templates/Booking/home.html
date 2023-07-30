@@ -3,14 +3,14 @@
 {% block content %}
 {% load static %}
 
-<body class="center-background" style="background-image: url('{% static 'images/salon.png' %}');">
-  <div class="container col-8 bg-black mt-5 rounded" style="--bs-bg-opacity: .5;">
-    <div class="row">
-      {% if not user.is_authenticated %}
-      <h3 class="text-white text-center">To book an appointment, you need to log in</h3>
-      {% endif %}
-    </div>
+
+<div class="container col-8 bg-black mt-5 rounded" style="--bs-bg-opacity: .5;">
+  <div class="row">
+    {% if not user.is_authenticated %}
+    <h3 class="text-white text-center">To book an appointment, you need to log in</h3>
+    {% endif %}
   </div>
-</body>
+</div>
+
 
 {% endblock %}
