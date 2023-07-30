@@ -192,7 +192,7 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 <br><br>
 
-### Validator testing
+## Validator testing
 
 #### HTML
 1. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2F
