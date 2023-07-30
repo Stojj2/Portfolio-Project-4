@@ -1,9 +1,9 @@
 {% extends "Booking/base.html" %}
-{% block content %}
 
+{% block content %}
 {% load static %}
 
-<body class="center-background" background="{% static "images/salon.png" %}">
+<body class="center-background" style="background-image: url('{% static 'images/salon.png' %}');">
   <div class="container col-8 bg-black mt-5 rounded" style="--bs-bg-opacity: .5;">
     <div class="row">
       {% if not user.is_authenticated %}
