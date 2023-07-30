@@ -46,8 +46,6 @@ With this application, both salon owners and customers can enjoy a hassle-free a
 ## Data Model
 <img src="docs/images/ERD.png" alt="mobile mockup, 404 error page" width="700"/>
 
-
-
  **The relationships between the models are as follows:** 
 
 1. **User:**<br> This is the built-in Django User model, representing the users of the application. It contains fields like username, email, and password.
@@ -56,11 +54,18 @@ With this application, both salon owners and customers can enjoy a hassle-free a
 
 3. **Booked:**<br> This model represents the booked appointments. It includes foreign keys to the Slot and User models, as each booking is associated with a specific slot and user (customer). The model also includes a comment field for additional notes about the booking.
 
+
 ## User Stories And Testing
+### Introduction <br>
 
-In this project, due to time constraints and project priorities,<br>
-I made a deliberate decision to focus on manual testing rather than implementing automated tests
-
+During the development of the project, GitHub Projects was used to implement an agile project management approach.<br> GitHub Projects provided a structured way to organize and track tasks,<br> allowing for breaking down the project into smaller, manageable units of work.
+<br><br>
+All user stories are linked to GitHub Projects data cards,<br> providing a direct connection between the project documentation and the task management system.<br> Each user story has a corresponding data card on the GitHub Projects board,<br> representing a specific task or feature in the development process.<br> This integration ensures that project documentation and task management are closely aligned,<br> allowing for easy tracking of progress, updates, and completion status for each user story.
+<br><br>
+In terms of testing, manual testing was used due to time constraints.<br> Although automated testing is an ideal practice to ensure comprehensive test coverage,<br> manual testing allowed for quick feedback and validation of critical functionalities.
+<br><br>
+Additionally, while manual testing was performed for the current version,<br> it is essential to note that automated tests will be added in the future.
+<br><br>
 
 ### Closed User Stories
 
