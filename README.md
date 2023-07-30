@@ -197,10 +197,11 @@ I made a deliberate decision to focus on manual testing rather than implementing
 #### HTML
 1. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2F
 <br>
+
 2. https://validator.w3.org/nu/?doc=https%3A%2F%2Fhairsalon4-ac0e725d37cb.herokuapp.com%2Fabout
 
 **Bugs**
-1. W3 error from having a body element in all templates
+1. W3 error from having a body element in all templates. should only be in base.html file
    - element replaced with a div element. 
 
 #### Python
@@ -228,6 +229,18 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 **Bugs**
 **0**
+
+#### Lighthouse
+**Desktop**
+<br><img src="docs/testing/signout-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/signin-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/home-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/about-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/register-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/scheduler-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/appointments_edit-desktop.png" alt="Lighthouse" width="300"/>
+<img src="docs/testing/appointments-desktop.png" alt="Lighthouse" width="300"/>
+
 
 ## Technology 
   - **GitPod**
