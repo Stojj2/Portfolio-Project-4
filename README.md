@@ -118,7 +118,7 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 #### 5. [Update Bookings](https://github.com/Stojj2/Portfolio-Project-4/issues/4)
   - As a **customer** I can **update my appointment** so that **I can change it at my convenience.**
-       - **`Test 1 - Update appointment` <span style="color:green">✓</span>**
+     - **`Test 1 - Update appointment` <span style="color:green">✓</span>**
        1. Visit https://hairsalon4-ac0e725d37cb.herokuapp.com/ and click the "Booking" button from the menu.
        <br><img src="docs/features/menu_booking.png" alt="mobile mockup, navbar on phone" width="250"/>
        2. Click the "My Appointments" button from the dropdown list
