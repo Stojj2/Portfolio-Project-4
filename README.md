@@ -232,14 +232,14 @@ I made a deliberate decision to focus on manual testing rather than implementing
 
 ### Lighthouse
 **Desktop**
-<br><img src="docs/testing/signout-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/signin-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/home-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/about-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/register-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/scheduler-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/appointments_edit-desktop.png" alt="Lighthouse" width="300"/>
-<img src="docs/testing/appointments-desktop.png" alt="Lighthouse" width="300"/>
+<br><img src="docs/testing/signout-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/signin-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/home-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/about-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/register-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/scheduler-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/appointments_edit-desktop.png" alt="Lighthouse" width="400"/>
+<img src="docs/testing/appointments-desktop.png" alt="Lighthouse" width="400"/>
 
 
 ## Technology 
