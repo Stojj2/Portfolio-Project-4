@@ -66,6 +66,8 @@ In terms of testing, manual testing was used due to time constraints.<br> Althou
 <br><br>
 Additionally, while manual testing was performed for the current version,<br> it is essential to note that automated tests will be added in the future.
 <br><br>
+The wireframes for each user story are attached to their respective user story cards in the GitHub Projects.
+Clicking on the hyperlink will navigate directly to the corresponding user story in the GitHub Projects.
 
 ### Closed User Stories
 
